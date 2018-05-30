@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="AngularOktato">
+<head>
+  <title>Angular</title>
+  <meta charset="utf-8">
+  <script src="angular_js/angular.min.js" type="text/javascript"></script>
+  <script src="angular_js/app.js" type="text/javascript"></script>
+  <script src="maincontroller.js" type="text/javascript"></script>
+  <script src="jquery.js" type="text/javascript"></script>
+</head>
+<body>
+
+  <div ng-controller="MainController">
+    
+    <h2>Automatikusan generált legördülő listák összekapcsolása</h2><br>
+
+      <b>Név:</b> <select ng-model="valasztottEmber" ng-options="ember.nev for ember in emberek" onchange="$('#tehat').hide(); $('#beszerezni').val('')"></select>  
+
+      &nbsp;&nbsp;
+
+      <b>kedencek: </b>
+        <select ng-model="valasztottKedvenc" onChange="$('#tehat').show()">
+        <option ng-repeat="kedvenc in valasztottEmber.kedvencek">{{kedvenc}}</option>
+      </select> 
+
+      <br><br><br>
+
+      <b>Beszerezni:</b><input id="beszerezni" type="text" ng-model="valasztottKedvenc" style="font-size: 12pt">
+
+      <br><br><br>
+
+      <div id="tehat" style="display: none; font-family: tahoma; font-size: 14pt; color: mediumseagreen">Tehát <b>{{valasztottEmber.nev}}</b> kedvence <b>{{valasztottKedvenc}}</b> lesz.</div>
+        
+
+      </div>
+
+  </div>
+
+</body>
+</html>

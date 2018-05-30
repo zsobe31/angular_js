@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="AngularOktato">
+<head>
+	<title>Angular</title>
+	<meta charset="utf-8">
+	<script src="angular_js/angular.min.js" type="text/javascript"></script>
+	<script src="angular_js/app.js" type="text/javascript"></script>
+	<script src="angular_js/maincontroller.js" type="text/javascript"></script>
+</head>
+<body>
+
+  <div ng-controller="MainController">
+  	
+  	<h2>Automatikusan generált lista</h2>
+
+  	<ul>
+  		<li ng-repeat="ember in emberek">
+			<span ng-if="$even">{{$index+1}}. <b>{{ember.nev}}</b>  ({{ember.eletkor}} éves)</span>
+			<span ng-if="$odd">{{$index+1}}. {{ember.nev}}  ({{ember.eletkor}} éves)</span>	
+  		</li>
+
+  	</ul>
+
+  </div>
+
+</body>
+</html>

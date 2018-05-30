@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="AngularOktato">
+<head>
+  <title>Angular</title>
+  <meta charset="utf-8">
+  <script src="angular_js/angular.min.js" type="text/javascript"></script>
+  <script src="angular_js/app.js" type="text/javascript"></script>
+  <script src="maincontroller_2.js" type="text/javascript"></script>
+  <script src="jquery.js" type="text/javascript"></script>
+</head>
+<body>
+
+  <div ng-controller="MainController">
+    
+    <h2>Találatok szűrése</h2><br>
+
+      <b>Keresés:</b><input type="text" ng-model="keresoMezo" style="font-size: 12pt">
+
+        <br><br>
+      <h3>Rokonok</h3>
+      <ul>
+        
+        <li ng-repeat="ember in emberek | filter:keresoMezo" ng-show="ember.rokon==1"><b>{{ember.nev}}</b> ({{ember.eletkor}}) <br>{{ember.telefon}}</li>
+
+      </ul>
+      <h3>Ismerősök</h3>
+       <ul>
+        
+        <li ng-repeat="ember in emberek | filter:keresoMezo" ng-hide="ember.rokon==1"><b>{{ember.nev}}</b> ({{ember.eletkor}}) <br>{{ember.telefon}}</li>
+
+      </ul>
+      
+
+  </div>
+
+</body>
+</html>
